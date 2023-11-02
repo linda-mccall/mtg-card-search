@@ -7,12 +7,14 @@ There are multiple websites and websites for finding cards, however I have not f
 
 Another issue is that I have not yet encountered an offline application where you can query for a card and be informed of what all of the keywords on a card mean. Take the following card for example: https://scryfall.com/card/sld/490/mikaeus-the-unhallowed. A new player would not understand:
 * intimidate: This creature can’t be blocked except by artifact creatures and/or creatures that share a color with it.
-* undying: s When a creature with undying dies, if it had no +1/+1 counters on it, return it to the battlefield under its owner’s control with a +1/+1 counter on it.
+* undying: When a creature with undying dies, if it had no +1/+1 counters on it, return it to the battlefield under its owner’s control with a +1/+1 counter on it.
 
 
 Phase 1: 
 * create an offline DB of all english MTG cards printed. This should be synced on a regular basis (at least weekly)
 * smart search to allow for incomplete/mispelled card names
+* keyword dictonary eg. `intimidate: This creature can’t be blocked except by artifact creatures and/or creatures that share a color with it.`
+
 * the ability to save cards to collections for future reference (like spotify playlists)
 
 Phase 2:
