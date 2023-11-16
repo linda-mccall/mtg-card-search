@@ -12,6 +12,14 @@ services:
       POSTGRES_PASSWORD: password
     volumes:
       - db:/var/lib/postgresql/data
+  flyway:
+    image: flyway/flyway
+    command: -url=jdbc:postgresql://db/postgres -schemas=public -user=user
+      -password=password -connectRetries=5 migrate
+    volumes:
+      - ./database:/flyway/sql
+    depends_on:
+      - db
 volumes:
   db:
     name: trackvg_db
