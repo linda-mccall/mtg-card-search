@@ -1,3 +1,4 @@
+```mermaid
 flowchart
 CARD --- CARD_TYPE
 CARD --- RARITY
@@ -10,3 +11,4 @@ KEYWORD --- CARD_KEYWORD
 USER --- LIST
 LIST --- LIST_CARD
 CARD --- LIST_CARD
+```
