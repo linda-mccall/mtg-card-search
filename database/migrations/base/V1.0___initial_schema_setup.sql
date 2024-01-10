@@ -37,6 +37,7 @@ CREATE TABLE card (
     toughness smallint,
     digital_only boolean NOT NULL,
     rarity_id serial NOT NULL,
+    is_legendary boolean NOT NULL,
     CONSTRAINT fk_rarity FOREIGN KEY (rarity_id)
         REFERENCES rarity(id)
 );

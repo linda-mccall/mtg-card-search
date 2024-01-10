@@ -24,6 +24,7 @@ CARD {
     short power
     short toughness
     boolean digital_only
+    boolean is_legendary
     serial rarity_id FK
 }
 TYPE { 

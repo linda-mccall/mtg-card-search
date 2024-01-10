@@ -27,3 +27,6 @@ Phase 3:
 Optional but I think it'd be cool:
 * other language support
 * implementing google firebase for translation of cards by taking photos. It's not uncommon for players to buy cards in other languages because they're cheaper. It would be nice to be able to get the english text for a Japanese/Chinese/French/Italian/German/Spanish/Portuguese card
+
+Get started:
+run `docker compose up`
