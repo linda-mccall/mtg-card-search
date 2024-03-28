@@ -1,3 +1,5 @@
+CREATE EXTENSION pg_trgm;
+
 CREATE TABLE rarity (
     id serial PRIMARY KEY,
     name varchar UNIQUE NOT NULL
@@ -32,6 +34,7 @@ CREATE TABLE keyword (
 CREATE TABLE card (
     id serial PRIMARY KEY,
     name varchar NOT NULL,
+    text varchar,
     card_mana_cost smallint,
     power smallint,
     toughness smallint,
@@ -104,7 +107,7 @@ CREATE TABLE list (
     id serial PRIMARY KEY,
     name varchar NOT NULL,
     person_id serial NOT NULL,
-    CONSTRAINT fk_person FOREIGN KEY (id)
+    CONSTRAINT fk_person FOREIGN KEY (person_id)
     REFERENCES person(id),
     UNIQUE (name, person_id)
 );

@@ -162,34 +162,32 @@ Response - `201`
 {
   "email": "linda.fenton@email.com",
   "id": "1"
-  "accessToken": "bearer ???"
 }
 ```
 ---
 
-`Patch /users`
+`Patch /login`
 Update a user
 
 Request
 ```json
 {
   "email": "linda.fenton@email.com",
-  "username": "big_cheddar",
-  "password": "password123"
+  "id": "1"
 }
 ```
+
 Response - `200`
 ```json
 {
   "email": "linda.fenton@email.com",
   "id": "1"
-  "username": "big_cheddar"
 }
 ```
 ---
 
-`DELETE /users/{user_id}`
-Delete a user by id
+`DELETE /users`
+Delete a user currently logged in
 
 Response - `204 No Content`
 
