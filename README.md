@@ -166,7 +166,7 @@ Response - `201`
 ```
 ---
 
-`Patch /login`
+`POST /login`
 Update a user
 
 Request
@@ -192,26 +192,6 @@ Delete a user currently logged in
 Response - `204 No Content`
 
 ---
-
-`POST /users/login`
-Login user
-Request
-```json
-{
-  "email": "linda.fenton@email.com",
-  "password": "password123"
-}
-```
-
-Response 200
-```json
-{
-  "email": "linda.fenton@email.com",
-  "id": "1"
-  "username": "big_cheddar",
-  "accessToken": "bearer ???"
-}
-```
 
 ---
 
