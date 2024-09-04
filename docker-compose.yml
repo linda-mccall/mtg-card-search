@@ -1,7 +1,7 @@
-version: "3.4"
+version: "3.9"
 services:
   db:
-    image: postgres:latest
+    image: postgres:15
     container_name: trackvg_db
     restart: always
     ports:
@@ -13,7 +13,7 @@ services:
     volumes:
       - db:/var/lib/postgresql/data
   flyway:
-    image: flyway/flyway
+    image: flyway/flyway:latest
     command: -url=jdbc:postgresql://db/postgres -schemas=public -user=user
       -password=password -connectRetries=5 migrate
     volumes:

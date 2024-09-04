@@ -12,13 +12,13 @@ import org.springframework.web.bind.annotation.*
 @RestController
 class UserController constructor(private val userService: UserService) {
 
-    @PostMapping("/users")
+    @PostMapping("public/users")
     fun register(@RequestBody loginDto: LoginDto): ResponseEntity<User> {
         val user = userService.createNewUser(loginDto)
-        return ResponseEntity.ok(user);
+        return ResponseEntity.ok(user)
     }
 
-    @DeleteMapping("/users")
+    @DeleteMapping("private/users")
     fun deleteUser() : ResponseEntity.HeadersBuilder<*> {
         val authentication: Authentication = SecurityContextHolder.getContext().authentication
 

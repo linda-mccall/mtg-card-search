@@ -16,12 +16,13 @@ import java.util.*
 
 class JwtAuthenticationFilter (
         private val jwtTokenUtil: JwtTokenUtil,
-        private val authenticationManager: AuthenticationManager
+        private val authenticationManager: AuthenticationManager,
+        private val objectMapper: ObjectMapper
 ) :
         UsernamePasswordAuthenticationFilter() {
 
     override fun attemptAuthentication(req: HttpServletRequest, response: HttpServletResponse): Authentication {
-        val credentials = ObjectMapper().readValue(req.inputStream, LoginDto::class.java)
+        val credentials = objectMapper.readValue(req.inputStream, LoginDto::class.java)
         val auth = UsernamePasswordAuthenticationToken(
                 credentials.email,
                 credentials.password,
@@ -45,7 +46,7 @@ class JwtAuthenticationFilter (
             response: HttpServletResponse,
             failed: AuthenticationException
     ) {
-        val error = BadCredentialsError()
+        val error = BadCredentialsError(objectMapper = objectMapper)
         response.status = error.status
         response.contentType = "application/json"
         response.writer.append(error.toString())
@@ -57,6 +58,7 @@ private data class BadCredentialsError(
         val timestamp: Long = Date().time,
         val status: Int = 401,
         val message: String = "Email or password incorrect",
+        val objectMapper: ObjectMapper
 ) {
     override fun toString(): String {
         return ObjectMapper().writeValueAsString(this)

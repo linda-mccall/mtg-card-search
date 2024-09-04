@@ -22,9 +22,9 @@ class ListService(private val userRepository: UserRepository,
     }
 
     fun update(id:Int, email: String, listName: String): List? {
-        var listOptional = listRepository.findById(id)
+        val listOptional = listRepository.findById(id)
         if (listOptional.isPresent) {
-            var list = listOptional.get()
+            val list = listOptional.get()
             if (StringUtils.equalsIgnoreCase(list.user.email, email)) {
                 list.name = listName
                 return listRepository.save(list)
@@ -36,9 +36,9 @@ class ListService(private val userRepository: UserRepository,
     }
 
     fun deleteList(id: Int, email: String) {
-        var listOptional = listRepository.findById(id)
+        val listOptional = listRepository.findById(id)
         if (listOptional.isPresent) {
-            var list = listOptional.get()
+            val list = listOptional.get()
             if (StringUtils.equalsIgnoreCase(list.user.email, email)) {
                 listRepository.deleteById(id)
             } else {
@@ -49,11 +49,11 @@ class ListService(private val userRepository: UserRepository,
 
     fun saveCardToList(saveCardDto: SaveCardDto, email: String): List? {
         val cardOptional = cardRepository.findById(saveCardDto.cardId)
-        var listOptional = listRepository.findById(saveCardDto.listId)
+        val listOptional = listRepository.findById(saveCardDto.listId)
 
         return if (listOptional.isPresent && cardOptional.isPresent) {
             if (StringUtils.equalsIgnoreCase(listOptional.get().user.email, email)) {
-                var card = cardOptional.get()
+                val card = cardOptional.get()
                 card.lists = card.lists.plus(listOptional.get())
                 cardRepository.save(card)
                 return listOptional.get()

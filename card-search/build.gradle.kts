@@ -43,6 +43,7 @@ dependencies {
 	implementation("io.jsonwebtoken:jjwt-api:0.12.3")
 	implementation("io.jsonwebtoken:jjwt-impl:0.12.3")
 	implementation("io.jsonwebtoken:jjwt-jackson:0.12.3")
+	implementation("com.google.code.gson:gson:2.11.0")
 
 	runtimeOnly("org.springdoc:springdoc-openapi-kotlin:1.7.0")
 
@@ -52,6 +53,7 @@ dependencies {
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 	testImplementation("org.springframework.boot:spring-boot-testcontainers")
 	testImplementation("org.testcontainers:junit-jupiter")
+	testImplementation("org.jetbrains.kotlin:kotlin-test:2.0.20")
 }
 
 tasks.withType<KotlinCompile> {
