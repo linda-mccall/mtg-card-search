@@ -15,6 +15,10 @@ class UserService(private val repository: UserRepository,
                 passwordEncoder.encode(loginDto.password), emptySet()))
     }
 
+    fun getUserByEmail(email: String): User {
+        return repository.findFirstByEmail(email)
+    }
+
     fun deleteUser(email: String) {
         repository.deleteByEmail(email)
     }

@@ -18,13 +18,21 @@ class UserController constructor(private val userService: UserService) {
         return ResponseEntity.ok(user)
     }
 
+    @GetMapping("private/users")
+    fun getUser(): Any {
+        val authentication: Authentication = SecurityContextHolder.getContext().authentication
+        if (authentication.isAuthenticated) {
+            return ResponseEntity.ok(userService.getUserByEmail(authentication.name))
+        }
+        return ResponseEntity.status(401)
+    }
+
     @DeleteMapping("private/users")
-    fun deleteUser() : ResponseEntity.HeadersBuilder<*> {
+    fun deleteUser() : Any {
         val authentication: Authentication = SecurityContextHolder.getContext().authentication
 
         if (authentication.isAuthenticated) {
             userService.deleteUser(authentication.name)
-            return ResponseEntity.noContent()
         }
         return ResponseEntity.status(401)
     }

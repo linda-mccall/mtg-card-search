@@ -29,12 +29,14 @@ class ListController constructor(private val listService: ListService, private v
     }
 
     @DeleteMapping("private/lists/{id}")
-    fun deleteList(@PathVariable(value = "id") id: Int, @RequestHeader("Authorization") authHeader: String): Any {
-        return try {
+    fun deleteList(@PathVariable(value = "id") id: Int,
+                   @RequestHeader("Authorization") authHeader: String) : Any {
+        try {
             listService.deleteList(id, jwtTokenUtil.getEmail(authHeader))
-            ResponseEntity.noContent()
         } catch (ex : UnauthorizedException) {
             ResponseEntity.status(401)
         }
+        return ResponseEntity.noContent()
+
     }
 }

@@ -147,7 +147,7 @@ LIST_CARD {
 
 # API Specification
 
-`POST /users`
+`POST /public/users`
 Create a user
 
 Request
@@ -166,7 +166,7 @@ Response - `201`
 ```
 ---
 
-`Patch /login`
+`Post /login`
 Update a user
 
 Request
@@ -186,36 +186,14 @@ Response - `200`
 ```
 ---
 
-`DELETE /users`
+`DELETE /private/users`
 Delete a user currently logged in
 
 Response - `204 No Content`
 
 ---
 
-`POST /users/login`
-Login user
-Request
-```json
-{
-  "email": "linda.fenton@email.com",
-  "password": "password123"
-}
-```
-
-Response 200
-```json
-{
-  "email": "linda.fenton@email.com",
-  "id": "1"
-  "username": "big_cheddar",
-  "accessToken": "bearer ???"
-}
-```
-
----
-
-`GET /cards?searchTerm={searchTerm}`
+`GET /public/cards?searchTerm={searchTerm}`
 Search for a card 
 
 Response - `200`
@@ -237,7 +215,7 @@ Response - `200`
 
 ---
 
-`POST /lists`
+`POST /private/lists`
 Create a list
 
 Request
@@ -257,7 +235,7 @@ Response - `201`
 ```
 ---
 
-`Patch /lists`
+`Patch /private/lists`
 Update a list
 
 Request
@@ -277,14 +255,14 @@ Response - `200`
 ```
 ---
 
-`DELETE /lists/{id}`
+`DELETE /private/lists/{id}`
 Delete a list by id
 
 Response - `204 No Content`
 
 ---
 
-`POST /saved-cards`
+`POST /private/saved-cards`
 Save card to a list
 
 Request
@@ -298,7 +276,7 @@ Response - `201 Created`
 
 ---
 
-`DELETE /saved-cards?listId={listId}&cardId={cardId}`
+`DELETE /private/saved-cards?listId={listId}&cardId={cardId}`
 Remove a saved card from a list
 
 Response - `204 No Content`
