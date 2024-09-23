@@ -15,12 +15,12 @@ class SavedCardController constructor(private val listService: ListService, priv
         return try {
             val savedList = listService.saveCardToList(saveCardDto ,jwtTokenUtil.getEmail(authHeader))
             if (savedList == null) {
-                ResponseEntity.status(404)
+                ResponseEntity.status(404).body(null)
             } else {
                 ResponseEntity.ok(savedList)
             }
         } catch (ex: UnauthorizedException) {
-            ResponseEntity.status(401)
+            ResponseEntity.status(401).body(null)
         }
     }
 
@@ -29,12 +29,12 @@ class SavedCardController constructor(private val listService: ListService, priv
         return try {
             val savedList = listService.removeCardFromList(listId, cardId, jwtTokenUtil.getEmail(authHeader))
             if (savedList == null) {
-                ResponseEntity.status(404)
+                ResponseEntity.status(404).body(null)
             } else {
-                ResponseEntity.noContent()
+                ResponseEntity.status(204).body(null)
             }
         } catch (ex: UnauthorizedException) {
-            ResponseEntity.status(401)
+            ResponseEntity.status(401).body(null)
         }
     }
 }

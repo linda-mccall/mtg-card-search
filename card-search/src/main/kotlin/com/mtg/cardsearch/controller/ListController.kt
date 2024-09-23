@@ -34,9 +34,8 @@ class ListController constructor(private val listService: ListService, private v
         try {
             listService.deleteList(id, jwtTokenUtil.getEmail(authHeader))
         } catch (ex : UnauthorizedException) {
-            ResponseEntity.status(401)
+            return ResponseEntity.status(401)
         }
-        return ResponseEntity.noContent()
-
+        return ResponseEntity.status(204).body(null)
     }
 }

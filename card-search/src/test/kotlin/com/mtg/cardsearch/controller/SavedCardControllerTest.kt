@@ -2,29 +2,32 @@ package com.mtg.cardsearch.controller
 
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.google.gson.Gson
-import com.mtg.cardsearch.dto.ListSaveDto
 import com.mtg.cardsearch.dto.LoginDto
-import com.mtg.cardsearch.entity.List
-import org.junit.jupiter.api.Assertions
+import com.mtg.cardsearch.dto.SaveCardDto
+import com.mtg.cardsearch.entity.User
+import com.mtg.cardsearch.repository.ListRepository
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.http.MediaType
-import org.springframework.test.web.servlet.*
-import java.util.*
+import org.springframework.test.web.servlet.MockMvc
+import org.springframework.test.web.servlet.delete
+import org.springframework.test.web.servlet.get
+import org.springframework.test.web.servlet.post
 
 @SpringBootTest
 @AutoConfigureMockMvc
-class ListControllerTest @Autowired constructor(
+class SavedCardControllerTest @Autowired constructor(
         val mockMvc: MockMvc,
-        val objectMapper: ObjectMapper) {
+        val objectMapper: ObjectMapper, val listRepository: ListRepository
+) {
 
     val testUsername = "integration@test.com"
     val testPassword = "Password123!"
     var bearer = ""
     val authenticationHeaderName = "Authorization"
-
+    val gson = Gson()
 
     fun setBearer() {
         val loginDto = LoginDto(testUsername, testPassword)
@@ -40,44 +43,42 @@ class ListControllerTest @Autowired constructor(
         bearer = "Bearer " + loginResponse.response.getHeaderValue(authenticationHeaderName)
     }
 
-    @Test
-    fun createUpdateThenDeleteList() {
+    fun getUser() : User? {
         setBearer()
-        val listSaveDto = ListSaveDto(null, Calendar.getInstance().time.toString())
-        var gson = Gson()
-
-        val createResult =  mockMvc.post("/private/lists") {
+        val userResponse = mockMvc.get("/private/users") {
             contentType = MediaType.APPLICATION_JSON
-            content = objectMapper.writeValueAsString(listSaveDto)
+            header(authenticationHeaderName, bearer)
+        }
+                .andDo { print() }
+                .andExpect { status { is2xxSuccessful() } }
+                .andReturn()
+        return gson.fromJson(userResponse.response.contentAsString, User::class.java)
+    }
+
+    @Test
+    fun saveCardToListThenRemove() {
+
+        val user = getUser()
+        val list = listRepository.findByUser(user!!)
+        val saveCardDto = SaveCardDto(list.first().id!!, 1)
+
+        mockMvc.post("/private/saved-cards") {
+            contentType = MediaType.APPLICATION_JSON
+            content = objectMapper.writeValueAsString(saveCardDto)
             header(authenticationHeaderName, bearer)
         }
                 .andDo { print() }
                 .andExpect { status { is2xxSuccessful() } }
                 .andReturn()
 
-        var createdList = gson?.fromJson(createResult.response.contentAsString, List::class.java)
-        Assertions.assertNotNull(createdList?.id ?: null)
-
-        val listSaveUpdateDto = ListSaveDto(createdList!!.id, Calendar.getInstance().time.toString() + 2)
-        val updateResponse = mockMvc.put("/private/lists") {
+        val deleteUrl = "/private/saved-cards?listId=" + saveCardDto.listId + "&cardId=1"
+        mockMvc.delete(deleteUrl) {
             contentType = MediaType.APPLICATION_JSON
-            content = objectMapper.writeValueAsString(listSaveUpdateDto)
             header(authenticationHeaderName, bearer)
         }
                 .andDo { print() }
                 .andExpect { status { is2xxSuccessful() } }
                 .andReturn()
-
-        var updatedList = gson?.fromJson(updateResponse.response.contentAsString, List::class.java)
-        Assertions.assertEquals(createdList.id, updatedList!!.id)
-        Assertions.assertNotEquals(createdList.name, updatedList!!.name)
-
-        mockMvc.delete("/private/lists/" + createdList.id) {
-            header(authenticationHeaderName, bearer)
-            contentType = MediaType.ALL
-        }
-                .andDo { print() }
-                .andExpect { status { isNoContent() } }
     }
 
 }

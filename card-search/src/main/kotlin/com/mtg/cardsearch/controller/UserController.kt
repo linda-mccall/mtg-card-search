@@ -3,6 +3,7 @@ package com.mtg.cardsearch.controller
 import com.mtg.cardsearch.dto.LoginDto
 import com.mtg.cardsearch.entity.User
 import com.mtg.cardsearch.service.UserService
+import org.springframework.http.HttpStatusCode
 import org.springframework.http.ResponseEntity
 import org.springframework.security.core.Authentication
 import org.springframework.security.core.context.SecurityContextHolder
@@ -24,7 +25,7 @@ class UserController constructor(private val userService: UserService) {
         if (authentication.isAuthenticated) {
             return ResponseEntity.ok(userService.getUserByEmail(authentication.name))
         }
-        return ResponseEntity.status(401)
+        return ResponseEntity.status(401).body(null)
     }
 
     @DeleteMapping("private/users")
@@ -33,7 +34,8 @@ class UserController constructor(private val userService: UserService) {
 
         if (authentication.isAuthenticated) {
             userService.deleteUser(authentication.name)
+            return ResponseEntity.status(204).body(null)
         }
-        return ResponseEntity.status(401)
+        return ResponseEntity.status(401).body(null)
     }
 }
