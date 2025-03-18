@@ -1,0 +1,19 @@
+{
+
+    "spotlights" : [
+        {
+            "name" : "Improving Productivity",
+            "search_terms" : [
+                "improving productivity", "more productive", "more productivity", "improve productivity", "improving your productivity"],
+            "record_id" : "TWMTW1",
+            "priority" : 1
+        },
+        {
+            "name" : "social media",
+            "search_terms" : [
+                "social media"],
+            "record_id" : "709426",
+            "priority" : 2
+        }
+    ]
+  }

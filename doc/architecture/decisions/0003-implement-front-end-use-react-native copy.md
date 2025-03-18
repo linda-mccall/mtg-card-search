@@ -15,4 +15,4 @@ We will use react native for it's mobile capabilities and because of the high qu
 
 ## Consequences
 
-None, development may be slow because the only developer on the project is back-end focused developer.
+None, development may be slow because the only developer on the project is back-end focused developer who is learning frontend on the fly.
