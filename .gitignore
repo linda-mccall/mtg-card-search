@@ -4,3 +4,12 @@
 .idea/modules.xml
 .idea/misc.xml
 .idea/checkstyle-idea.xml
+/.idea/
+/tutorial/node_modules/
+/cardSearchUi/node_modules/
+card-search/.DS_Store
+cardSearchUi/.DS_Store
+card-search/src/main/.DS_Store
+card-search/src/.DS_Store
+tutorial/.DS_Store
+.DS_Store
