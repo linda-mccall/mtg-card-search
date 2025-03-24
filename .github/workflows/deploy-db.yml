@@ -5,7 +5,7 @@ on:
     branches:
       - main
     paths:
-      - "db/**"
+      - "database/**"
   workflow_dispatch:
 
 jobs:
