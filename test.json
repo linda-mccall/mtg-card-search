@@ -1,0 +1,260 @@
+{
+    "categories" : [
+        {
+            "name" : "Managing Your Organization",
+            "content" : [
+                {
+                    "title" : "Blockchain",
+                    "curation_date" : "2024-04-04",
+                    "dek" : "How can companies begin to work with this emerging technology?",
+                    "record_product_ids" : [ 
+                        "818031-PDF-ENG", "817100-PDF-ENG", "518089-PDF-ENG"
+                    ]
+                },
+                {
+                    "title" : "Developing a Social Strategy",
+                    "curation_date" : "2024-04-04",
+                    "dek" : "Integrating online communities and physical products.",
+                    "record_product_ids" : [ 
+                        "712484-PDF-ENG", "314122-PDF-ENG", "712447-PDF-ENG"
+                    ]
+                },
+                {
+                    "title" : "Entering Developing Markets",
+                    "curation_date" : "2019-01-07",
+                    "dek" : "Understand what should stay the same and what needs to change, and what information you need to decide.",
+                    "record_product_ids" : [ 
+                        "712422-PDF-ENG", "112096-PDF-ENG", "312102-PDF-ENG"
+                    ]
+                },
+
+                {
+                    "title" : "Strategy in Action",
+                    "curation_date" : "2025-01-01",
+                    "dek" : "Integrating online communities and physical products.",
+                    "record_product_ids" : [ 
+                        "712484-PDF-ENG", "314122-PDF-ENG", "712447-PDF-ENG"
+                    ]
+                },
+                {
+                    "title" : "Protecting Consumer Privacy",
+                    "curation_date" : "2019-05-02",
+                    "dek" : "Companies that rely on vast troves of personal data must ask tough questions to keep it private and safe.",
+                    "record_product_ids" : [ 
+                        "819024-PDF-ENG", "118031-PDF-ENG"
+                    ]
+                },                
+                {
+                    "title" : "Managing a Social Media Crisis",
+                    "curation_date" : "2019-01-07",
+                    "dek" : "When fans go rogue online, do you contain the viral threat or take advantage of the opportunity to gain more followers?",
+                    "record_product_ids" : [ 
+                        "510064-PDF-ENG", "510057-PDF-ENG", "917026-PDF-ENG", "8224-PDF-ENG"
+                    ]
+                },
+                {
+                    "title" : "M&A Making the Decision",
+                    "curation_date" : "2019-01-07",
+                    "dek" : "Considerations before the deal closes.",
+                    "record_product_ids" : [ 
+                        "208129-PDF-ENG", "709462-PDF-ENG", "211020-PDF-ENG", "5242-PDF-ENG"
+                    ]
+                },
+                {
+                    "title" : "Apple Inc.",
+                    "curation_date" : "2019-01-07",
+                    "dek" : "E2 The storied history of the \"most creative company in the world.\"",
+                    "record_product_ids" : [ 
+                        "809063-PDF-ENG", "510057-PDF-ENG", "917026-PDF-ENG", "8224-PDF-ENG"
+                    ]
+                },
+                {
+                    "title" : "Transformation and Turnaround",
+                    "curation_date" : "2019-09-25",
+                    "dek" : "Reinventing a company headed in the wrong direction.",
+                    "record_product_ids" : [ 
+                        "613004-PDF-ENG", "314068-PDF-ENG", "517037-PDF-ENG"
+                    ]
+                },
+                {
+                    "title" : "Buying a Small Business",
+                    "curation_date" : "2019-01-07",
+                    "dek" : "You can buy a small business and run it as CEO.",
+                    "record_product_ids" : [ 
+                        "212120-PDF-ENG", "213028-PDF-ENG", "211066-PDF-ENG"
+                    ]
+                },
+                {
+                    "title" : "Pricing Strategy",
+                    "curation_date" : "2019-01-07",
+                    "dek" : "Understanding tiers, discounting, and the power of free.",
+                    "record_product_ids" : [ 
+                        "517016-PDF-ENG", "817067-PDF-ENG", "917026-PDF-ENG", "8224-PDF-ENG"
+                    ]
+                },
+                {
+                    "title" : "Artificial Intelligence",
+                    "curation_date" : "2020-01-24",
+                    "dek" : "The Artificial Intelligence (AI) revolution is already reshaping business and society.",
+                    "record_product_ids" : [ 
+                        "518067-PDF-ENG", "418020-PDF-ENG"
+                    ]
+                },
+                {
+                    "title" : "Leading Change as a Middle Manager",
+                    "curation_date" : "2018-07-05",
+                    "dek" : "Exerting influence with only some direct authority.",
+                    "record_product_ids" : [ 
+                        "415033-PDF-ENG", "409090-PDF-ENG", "409014-PDF-ENG"
+                    ]
+                },
+                {
+                    "title" : "Extending Your Brands",
+                    "curation_date" : "2024-04-04",
+                    "dek" : "You have an iconic product line. How can you expand your offering into new markets without undermining your brand uniqueness?",
+                    "record_product_ids" : [ 
+                        "618020-PDF-ENG", "316086-PDF-ENG", "919501-PDF-ENG"
+                    ]
+                },
+                {
+                    "title" : "Innovation in Action",
+                    "curation_date" : "2019-01-07",
+                    "dek" : "Being able to innovate and adapt to new competition and technology requires the right incentives, communication, and openness to change.",
+                    "record_product_ids" : [ 
+                        "922040-PDF-ENG", "513090-PDF-ENG", "712422-PDF-ENG"
+                    ]
+                },
+                {
+                    "title" : "Doing Business in China",
+                    "curation_date" : "2022-01-12",
+                    "dek" : "How to navigate building a business in one of the world's largest economies amidst tariffs, regulations, and dynamic political challenges.",
+                    "record_product_ids" : [ 
+                        "718426-PDF-ENG", "920559-PDF-ENG", "321124-PDF-ENG"
+                    ]
+                },
+                {
+                    "title" : "The Future of Remote Work",
+                    "curation_date" : "2021-07-01",
+                    "dek" : "Lessons learned from companies navigating remote and hybrid work.",
+                    "record_product_ids" : [ 
+                        "620066-PDF-ENG", "621081-PDF-ENG", "621035-PDF-ENG"
+                    ]
+                },
+                {
+                    "title" : "Running Better Business Experiments",
+                    "curation_date" : "2021-10-22",
+                    "dek" : "How companies can learn more, faster.",
+                    "record_product_ids" : [ 
+                        "619015-PDF-ENG", "619003-PDF-ENG", "920051-PDF-ENG"
+                    ]
+                },
+                {
+                    "title" : "Building a Future Workforce",
+                    "curation_date" : "2020-12-04",
+                    "dek" : "How companies are transforming their talent and creating organizations that are more digital, more diverse, and more agile.",
+                    "record_product_ids" : [ 
+                        "820104-PDF-ENG", "820017-PDF-ENG", "420106-PDF-ENG"
+                    ]
+                },
+                {
+                    "title" : "Leading in a Time of Crisis",
+                    "curation_date" : "2020-04-01",
+                    "dek" : "How companies and governments have responded to major disasters.",
+                    "record_product_ids" : [ 
+                        "309055-PDF-ENG", "713439-PDF-ENG", "703041-PDF-ENG"
+                    ]
+                },
+                {
+                    "title" : "Black Business Leaders",
+                    "curation_date" : "2020-08-03",
+                    "dek" : "Case studies featuring Black protagonists.",
+                    "record_product_ids" : [ 
+                        "405087-PDF-ENG", "317076-PDF-ENG", "317059-PDF-ENG"
+                    ]
+                }
+            ]
+        },
+        {
+            "name" : "Managing Your Team",
+            "content" : [
+                {
+                    "title" : "Managing Global Teams",
+                    "curation_date" : "2019-01-07",
+                    "dek" : "Miscommunication and inefficiency plague dispersed teams. How can you achieve high performance as the leader of a team that is scattered across the globe?",
+                    "record_product_ids" : [ 
+                        "410054-PDF-ENG", "414059-PDF-ENG", "409003-PDF-ENG", "8358-PDF-ENG"
+                    ]
+                },
+                {
+                    "title" : "Managing Difficult Employees",
+                    "curation_date" : "2019-01-07",
+                    "dek" : "When personalities get in the way.",
+                    "record_product_ids" : [ 
+                        "913572-PDF-ENG", "617029-PDF-ENG", "498045-PDF-ENG"
+                    ]
+                },
+                {
+                    "title" : "Learning from Failure",
+                    "curation_date" : "2021-02-26",
+                    "dek" : "The best teams and organizations don't just recover from setbacks; they purposefully learn from them to better serve their customers.",
+                    "record_product_ids" : [ 
+                        "612046-PDF-ENG", "615022-PDF-ENG", "817052-PDF-ENG"
+                    ]
+                }
+            ]
+        },
+
+
+        {
+            "name" : "Building Skills",
+            "content" : [
+                {
+                    "title" : "Working with Venture Capitalists",
+                    "curation_date" : "2019-01-07",
+                    "dek" : "Understanding the context--and the questions to ask.",
+                    "record_product_ids" : [ 
+                        "803062-PDF-ENG", "915543-PDF-ENG", "814060-PDF-ENG", "8240-PDF-ENG"
+                    ]
+                },
+                {
+                    "title" : "Calculating the Cost of Capital",
+                    "curation_date" : "2019-01-07",
+                    "dek" : "Identifying inputs and overcoming practical problems.",
+                    "record_product_ids" : [ 
+                        "4129-PDF-ENG", "204109-PDF-ENG", "201046-PDF-ENG", "8293-PDF-ENG"
+                    ]
+                }
+            ]
+        },
+
+        {
+            "name" : "Managing Yourself",
+            "content" : [
+                {
+                    "title" : "Authentic Leadership",
+                    "curation_date" : "2019-01-07",
+                    "dek" : "Great leaders are shaped by their unique personal stories--strengths, challenges, and all.",
+                    "record_product_ids" : [ 
+                        "405087-PDF-ENG", "409024-PDF-ENG", "413091-PDF-ENG"
+                    ]
+                },
+                {
+                    "title" : "Balancing Childcare and Work",
+                    "curation_date" : "2019-01-07",
+                    "dek" : "Negotiating leave policies, flexible work, and maintaining work-life balance is tricky for both employees and organizations.",
+                    "record_product_ids" : [ 
+                        "407003-PDF-ENG", "394111-PDF-ENG", "803185-PDF-ENG"
+                    ]
+                },
+                {
+                    "title" : "Maintaining Work-Life Balance",
+                    "curation_date" : "2019-01-07",
+                    "dek" : "Career decisions are about more than just your career.",
+                    "record_product_ids" : [ 
+                        "405106-PDF-ENG", "406083-PDF-ENG", "808042-PDF-ENG"
+                    ]
+                }
+            ]
+        }
+    ]
+  }

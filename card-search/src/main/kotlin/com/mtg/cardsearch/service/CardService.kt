@@ -15,7 +15,7 @@ class CardService(private val cardRepository: CardRepository, private val ruling
         val cardResponses = cards.map {
             mapCardToCardResponse(it)
         }
-        return cardResponses;
+        return cardResponses
     }
 
     private fun mapCardToCardResponse(card: Card) : CardResponse {

@@ -1,11 +1,9 @@
-package com.mtg.cardsearch.service
+package com.mtg.cardsearch.auth
 
-import com.mtg.cardsearch.auth.UserSecurity
 import com.mtg.cardsearch.repository.UserRepository
 import org.springframework.security.core.authority.SimpleGrantedAuthority
 import org.springframework.security.core.userdetails.UserDetails
 import org.springframework.security.core.userdetails.UserDetailsService
-import org.springframework.security.core.userdetails.UsernameNotFoundException
 import org.springframework.stereotype.Service
 import java.util.*
 
@@ -15,7 +13,7 @@ class UserAuthService(
 ) : UserDetailsService {
     override fun loadUserByUsername(username: String): UserDetails {
         // Create a method in your repo to find a user by its username
-        val user = repository.findFirstByEmail(username) ?: throw UsernameNotFoundException("$username not found")
+        val user = repository.findFirstByEmail(username)
         return UserSecurity(
                 user.id.toString(),
                 user.email,

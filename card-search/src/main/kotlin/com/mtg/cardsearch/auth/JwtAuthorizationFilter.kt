@@ -1,11 +1,13 @@
 package com.mtg.cardsearch.auth
 
+import com.mtg.cardsearch.exception.UnauthorizedException
 import com.mtg.cardsearch.util.JwtTokenUtil
 import jakarta.servlet.FilterChain
 import jakarta.servlet.ServletException
 import jakarta.servlet.http.HttpServletRequest
 import jakarta.servlet.http.HttpServletResponse
 import org.springframework.http.HttpHeaders.AUTHORIZATION
+import org.springframework.http.HttpStatus
 import org.springframework.security.authentication.AuthenticationManager
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken
 import org.springframework.security.core.context.SecurityContextHolder
@@ -26,15 +28,21 @@ class JwtAuthorizationFilter (
             res: HttpServletResponse,
             chain: FilterChain
     ) {
-        val header = req.getHeader(AUTHORIZATION)
-        if (header == null || !header.startsWith("Bearer ")) {
+        try {
+            val header = req.getHeader(AUTHORIZATION)
+            if (header == null || !header.startsWith("Bearer ")) {
+                throw UnauthorizedException("Invalid token")
+            }
+            getAuthentication(header.replace("Bearer ", ""))?.also {
+                SecurityContextHolder.getContext().authentication = it
+            }
             chain.doFilter(req, res)
+        }  catch (ex : Exception) {
+            logger.error(ex.message)
+            res.status = HttpStatus.UNAUTHORIZED.value()
             return
-        }
-        getAuthentication(header.replace("Bearer ",""))?.also {
-            SecurityContextHolder.getContext().authentication = it
-        }
-        chain.doFilter(req, res)
+    }
+
     }
 
     private fun getAuthentication(token: String): UsernamePasswordAuthenticationToken? {

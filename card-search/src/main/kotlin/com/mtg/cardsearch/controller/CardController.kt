@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RestController
 @RestController
 class CardController constructor(private val cardService: CardService) {
 
-    @GetMapping("/cards")
+    @GetMapping("public/cards")
     fun cardSearch(@RequestParam(value = "searchTerm") searchTerm: String): ResponseEntity<List<CardResponse>> {
-        return ResponseEntity.ok(cardService.searchForCards(searchTerm));
+        return ResponseEntity.ok(cardService.searchForCards(searchTerm))
     }
 }

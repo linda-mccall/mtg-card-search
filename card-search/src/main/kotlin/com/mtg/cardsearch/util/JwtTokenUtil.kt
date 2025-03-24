@@ -15,9 +15,12 @@ class JwtTokenUtil {
                     .signWith(SignatureAlgorithm.HS512, secret.toByteArray()).compact()
 
     private fun getClaims(token: String) =
-            Jwts.parser().setSigningKey(secret.toByteArray()).build().parseSignedClaims(token).getPayload()
+            Jwts.parser().setSigningKey(secret.toByteArray()).build().parseSignedClaims(token).payload
 
-    fun getEmail(token: String): String = getClaims(token).subject
+    fun getEmail(token: String): String{
+        val cleanedToken = token.replace("Bearer ","")
+        return getClaims(cleanedToken).subject
+    }
 
     fun isTokenValid(token: String): Boolean {
         val claims = getClaims(token)

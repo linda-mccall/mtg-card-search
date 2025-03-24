@@ -11,33 +11,31 @@ import org.springframework.web.bind.annotation.*
 @RestController
 class ListController constructor(private val listService: ListService, private val jwtTokenUtil: JwtTokenUtil) {
 
-    @PostMapping("/lists")
-    fun createList(@RequestBody listSaveDto: ListSaveDto, @RequestHeader("Authorization") header: String): ResponseEntity<List> {
-        val token = header.replace("Bearer ","")
-        return ResponseEntity.ok(listService.createList(jwtTokenUtil.getEmail(token), listSaveDto.listName))
+    @PostMapping("private/lists")
+    fun createList(@RequestBody listSaveDto: ListSaveDto, @RequestHeader("Authorization") authHeader: String): ResponseEntity<List> {
+        return ResponseEntity.ok(listService.createList(jwtTokenUtil.getEmail(authHeader), listSaveDto.listName))
     }
 
-    @PutMapping("/lists")
-    fun updateList(@RequestBody listSaveDto: ListSaveDto, @RequestHeader("Authorization") header: String): Any {
-        val token = header.replace("Bearer ","")
+    @PutMapping("private/lists")
+    fun updateList(@RequestBody listSaveDto: ListSaveDto, @RequestHeader("Authorization") authHeader: String): Any {
         if (listSaveDto.listId == null) {
-            return ResponseEntity.notFound();
+            return ResponseEntity.notFound()
         }
         return try {
-            ResponseEntity.ok(listService.update(listSaveDto.listId, jwtTokenUtil.getEmail(token), listSaveDto.listName))
+            ResponseEntity.ok(listService.update(listSaveDto.listId, jwtTokenUtil.getEmail(authHeader), listSaveDto.listName))
         } catch (ex : UnauthorizedException) {
             ResponseEntity.status(401)
         }
     }
 
-    @DeleteMapping("/lists/{id}")
-    fun deleteList(@PathVariable(value = "id") id: Int, @RequestHeader("Authorization") header: String): Any {
-        val token = header.replace("Bearer ","")
-        return try {
-            listService.deleteList(id, jwtTokenUtil.getEmail(token))
-            ResponseEntity.noContent()
+    @DeleteMapping("private/lists/{id}")
+    fun deleteList(@PathVariable(value = "id") id: Int,
+                   @RequestHeader("Authorization") authHeader: String) : Any {
+        try {
+            listService.deleteList(id, jwtTokenUtil.getEmail(authHeader))
         } catch (ex : UnauthorizedException) {
-            ResponseEntity.status(401)
+            return ResponseEntity.status(401)
         }
+        return ResponseEntity.status(204).body(null)
     }
 }
