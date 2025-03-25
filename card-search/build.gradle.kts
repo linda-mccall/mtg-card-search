@@ -32,6 +32,7 @@ dependencies {
 	implementation("org.springframework.security:spring-security-config:6.2.2")
 	implementation("org.springframework.security:spring-security-core:6.2.2")
 	implementation("org.springframework.security.oauth:spring-security-oauth2:2.5.2.RELEASE")
+	implementation("org.springframework.boot:spring-boot-starter-actuator")
 
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
 	implementation("org.postgresql:postgresql")

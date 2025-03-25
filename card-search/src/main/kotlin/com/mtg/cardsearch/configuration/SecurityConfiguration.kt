@@ -38,6 +38,8 @@ class SecurityConfiguration (private val userDetailsService: UserDetailsService)
                     it.requestMatchers(HttpMethod.POST, "/users/**").permitAll()
                     it.requestMatchers(HttpMethod.GET, "/cards/**").permitAll()
                     it.requestMatchers(HttpMethod.POST, "/login").permitAll()
+                    it.requestMatchers(HttpMethod.GET, "/actuator/**").permitAll()
+                    it.requestMatchers(HttpMethod.POST, "/actuator/**").permitAll()
                     it.anyRequest().authenticated()}
                 .authenticationManager(authenticationManager)
                 .sessionManagement { it.sessionCreationPolicy(SessionCreationPolicy.STATELESS) }
