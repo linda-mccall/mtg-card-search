@@ -20,6 +20,17 @@ services:
       - ./database:/flyway/sql
     depends_on:
       - db
+  api:
+    profiles: ["dev"]
+    build:
+      context: ./card-search
+      dockerfile: Dockerfile.local
+    volumes:
+      - ./card-search:/app
+    ports:
+      - "3001:3001"
+    depends_on:
+      - flyway
 volumes:
   db:
     name: trackvg_db
