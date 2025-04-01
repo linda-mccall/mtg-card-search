@@ -32,7 +32,7 @@ jobs:
       - name: Build and push image to Lightsail
         id: build-image
         run: |
-          docker build --build-arg SPRING_DATASOURCE_URL=${{ secrets.DEV_DB_URL }}' --build-arg SPRING_DATASOURCE_USERNAME=${{ secrets.DEV_DB_USER }} --build-arg SPRING_DATASOURCE_PASSWORD=${{ secrets.DEV_DB_PASSWORD }} -t card-search:latest .
+          docker build --build-arg SPRING_DATASOURCE_URL='${{ secrets.DEV_DB_URL }}' --build-arg SPRING_DATASOURCE_USERNAME='${{ secrets.DEV_DB_USER }}' --build-arg SPRING_DATASOURCE_PASSWORD='${{ secrets.DEV_DB_PASSWORD }}' -t card-search:latest .
           aws lightsail push-container-image --region us-east-1 --service-name mtg-search-container --label card-search --image card-search:latest
       - name: Deploy Service
         run: |
